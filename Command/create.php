@@ -1,6 +1,6 @@
 <?php
 
-$constVariable = require  dirname(__DIR__) . '/config/const.php';
+$constVariable = require dirname(__DIR__).'/config/const.php';
 $envFile = $constVariable['ENV_PATH'];
 
 use Database\Connection;
@@ -8,16 +8,18 @@ use Parser\Env\EnvFileParser;
 
 spl_autoload_register(function($class) {
 
-    $path = str_replace('\\', '/', __DIR__. '/../'.$class.'.php');
+    $path = str_replace('\\', '/', __DIR__.'/../'.$class.'.php');
 
-    if (file_exists($path)) {
+    if(file_exists($path))
+    {
 
         require $path;
     }
 });
 
 
-try {
+try
+{
     $database = new Connection(new EnvFileParser($envFile));
 
     $database->getConnection()->query(
@@ -33,6 +35,8 @@ try {
 
     echo "\n Таблица успешно создана \n\n";
 
-} catch (Exception $e) {
+}
+catch(Exception $e)
+{
     echo sprintf("\n Ошибка: %s  \n\n", $e->getMessage());
 }

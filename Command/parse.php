@@ -7,8 +7,8 @@ use Parser\Xml\XmlFileParser;
 use Service\DesadvImportService;
 
 
-$xmlFile = dirname(__DIR__) . '/desadv_1111.xml';
-$constVariable = require  dirname(__DIR__) . '/config/const.php';
+$xmlFile = dirname(__DIR__).'/desadv_1111.xml';
+$constVariable = require dirname(__DIR__).'/config/const.php';
 $envFile = $constVariable['ENV_PATH'];
 
 spl_autoload_register(function($class) {

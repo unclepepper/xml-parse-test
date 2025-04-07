@@ -28,7 +28,7 @@ services:
     container_name: ${APP_NAME}-database
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_DATABASE:  ${DB_DATABASE}
+      MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
@@ -36,7 +36,7 @@ services:
     volumes:
       - db_${APP_NAME}:/var/lib/mysql
     networks:
-    - ${APP_NAME}-network
+      - ${APP_NAME}-network
 
 volumes:
   db_xml_parse:
