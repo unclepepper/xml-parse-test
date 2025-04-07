@@ -58,7 +58,10 @@ m-up: ## Создание таблицы
 m-down: ## Удаление таблицы
 	${DOCKER_COMPOSE} exec ${CONTAINER_PHP} php Command/drop.php
 
-.PHONY: m-up
+parse: ## Парсинг файла таблицы
+	${DOCKER_COMPOSE} exec ${CONTAINER_PHP} php Command/parse.php
+
+.PHONY: m-up m-down
 
 
 right: ## Установка прав
