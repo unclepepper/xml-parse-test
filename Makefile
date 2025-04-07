@@ -1,5 +1,3 @@
-PROJECT_NAME="$(shell basename "$(PWD)")"
-PROJECT_DIR="$(shell pwd)"
 DOCKER_COMPOSE="$(shell which docker-compose)"
 DOCKER="$(shell which docker)"
 CONTAINER_PHP="php-unit"
@@ -27,10 +25,10 @@ sleep-5:
 	sleep 5
 
 up: ## Поднятие контейнеров
-	docker-compose   --env-file .env up --build -d
+	${DOCKER_COMPOSE}   --env-file .env up --build -d
 
 down: ## Остановка контейнеров
-	docker-compose   --env-file .env down --remove-orphans
+	${DOCKER_COMPOSE}   --env-file .env down --remove-orphans
 
 generate-env:
 	@if [ ! -f .env ]; then \

@@ -18,16 +18,8 @@ RUN apt-get update && apt-get install -y \
 
 
 
-
-
 COPY unit-config.json /docker-entrypoint.d/config.json
 COPY unit-config.json /etc/unit/unit.json
-
-
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-RUN php composer-setup.php --version="2.8.1" --install-dir=/usr/local/bin --filename=composer
-RUN php -r "unlink('composer-setup.php');"
-
 
 
 WORKDIR /var/www/app
